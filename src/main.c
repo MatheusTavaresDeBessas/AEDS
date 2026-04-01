@@ -7,6 +7,8 @@ int main(void)
 {
     setlocale(LC_ALL, "portuguese");        
 
+    system("clear");
+
     teste();
 
     FILE *f = fopen("data/input.dat", "r");
@@ -24,7 +26,7 @@ int main(void)
     float matriz[n][2];
     float matriz_individuos[m][2];
 
-    void gerar_individuos(float *matriz_individuos[][2], short int  m);
+    gerar_individuos(matriz_individuos, m);
     
     for(int x=0; x<n; x++)
     {

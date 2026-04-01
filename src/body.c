@@ -18,7 +18,7 @@ float gauss(float media, float desvio)
     return media + z * desvio;
 }
 
-void gerar_individuos(float *(*matriz_individuos)[2], short int  m)
+void gerar_individuos(float matriz_individuos[][2], short int  m)
 {
     srand(42); 
 
@@ -30,7 +30,7 @@ void gerar_individuos(float *(*matriz_individuos)[2], short int  m)
 
         float y = 2 * x + 5 + ruido;
 
-        matriz_individuos[contador][0] = &x;
-        matriz_individuos[contador][1] = &y;
+        matriz_individuos[contador][0] = x;
+        matriz_individuos[contador][1] = y;
     }
 }
