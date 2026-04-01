@@ -17,6 +17,34 @@ int main(void)
         return 1;
     }
 
+    short int g, n, m;
+    fflush(stdin);
+    fscanf(f, "%hd %hd %hd", &n, &m, &g);
+
+    float matriz[n][2];
+    float matriz_individuos[m][2];
+
+    void gerar_individuos(float *matriz_individuos[][2], short int  m);
+    
+    for(int x=0; x<n; x++)
+    {
+        for(int y=0; y<2; y++)
+        {
+            fscanf(f, "%f", &matriz[x][y]);
+        }
+
+        printf("\n%f", matriz[x][0]);
+        printf(" %f\n", matriz[x][1]);
+    }
+
+    printf("\n-------------------------------------\n");
+
+    for(int x=0; x<m; x++)
+    {
+        printf("\n%f", matriz_individuos[x][0]);
+        printf(" %f\n", matriz_individuos[x][1]);
+    }
+
     fclose(f);
 
     return 0;
