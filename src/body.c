@@ -34,3 +34,17 @@ void gerar_individuos(float matriz_individuos[][2], short int  m)
         matriz_individuos[contador][1] = y;
     }
 }
+
+float calcular_erro(float a, float b, float (*matriz)[2], int n)
+{
+    float erro=0;
+
+    for(int x=0; x<n; x++)
+    {
+        erro+=(matriz[x][1] - (a*(matriz[x][0]) + b)) * (matriz[x][1] - (a*(matriz[x][0]) + b));
+    }
+
+    erro = erro * 1/n;
+
+    return erro;
+}
