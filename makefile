@@ -6,8 +6,11 @@ SRC = $(wildcard src/*.c)
 OBJ = $(patsubst src/%.c, build/%.o, $(SRC))
 
 OUT = build/programa
-GERADOR = build/gerador
-INPUT = data/input.dat
+
+# usar gerar.c
+#
+# GERADOR = build/gerador
+# INPUT = data/input.dat
 
 .PHONY: all clean run
 
@@ -19,14 +22,21 @@ $(OUT): $(OBJ)
 build/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(GERADOR): tools/gerar.c
-	$(CC) tools/gerar.c -o $(GERADOR) -lm
-
-$(INPUT): $(GERADOR)
-	./$(GERADOR)
+#compilação do gerar.c
+#
+# $(GERADOR): tools/gerar.c
+# 	$(CC) tools/gerar.c -o $(GERADOR) -lm
+#
+# $(INPUT): $(GERADOR)
+# 	./$(GERADOR)
 
 clean:
-	rm -rf build/* data/input.dat
+	rm -rf build/*
+#	rm -rf build/* data/input.dat
+#clean acima deve ser usado junto com o gerar.c
 
-run: clean $(INPUT) all
+#run com gerador
+#run: clean $(INPUT) all)
+
+run: clean all
 	./$(OUT)

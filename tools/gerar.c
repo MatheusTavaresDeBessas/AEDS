@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <math.h>
 
+//ferramenta usada so para testes, ignorei no makefile
+
 float gauss(float media, float desvio) 
 {
     float u1 = ((float)rand() + 1) / (RAND_MAX + 1.0);
@@ -14,7 +16,7 @@ float gauss(float media, float desvio)
 
 int main(void) 
 {
-    int pontos = 40, populacao = 60, geracoes = 300;
+    int pontos = 40, populacao = 60, geracoes = 100;
 
     FILE *f = fopen("data/input.dat", "w");
 
