@@ -11,7 +11,7 @@ int main(void)
 {
     setlocale(LC_ALL, "portuguese");        
 
-    system("clear");
+    //system("clear");
 
     teste();
 
@@ -23,11 +23,11 @@ int main(void)
         return 1;
     }
 
-    short int g, n, m;
-    fflush(stdin);
-    fscanf(f, "%hd %hd %hd", &n, &m, &g);
+    int g, n, m;
 
-    float matriz_pontos[n][2]; 
+    fscanf(f, "%d %d %d", &n, &m, &g);
+
+    float (*matriz_pontos)[2] = malloc(n * sizeof(*matriz_pontos));
     
     for(int x=0; x<n; x++)
     {
@@ -38,7 +38,7 @@ int main(void)
     }
     fclose(f);
 
-    float matriz_individuos[m][2];
+    float (*matriz_individuos)[2] = malloc(m * sizeof(*matriz_individuos));
 
     gerar_individuos(matriz_individuos, m);
 
@@ -47,6 +47,14 @@ int main(void)
     for(int x=0; x<m; x++)
     {
         erro_medio[x] = calcular_erro(matriz_individuos[x][0], matriz_individuos[x][1], matriz_pontos, n);
+    }
+
+    float fitness[m];
+
+    for(int x=0; x<m; x++)
+    {
+        float erro = erro_medio[x];
+        fitness[x] = 1.0f / (erro + 0.0001f);
     }
 
     return 0;

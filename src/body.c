@@ -18,20 +18,14 @@ float gauss(float media, float desvio)
     return media + z * desvio;
 }
 
-void gerar_individuos(float matriz_individuos[][2], short int  m)
+void gerar_individuos(float matriz_individuos[][2], int m)
 {
-    srand(42); 
+    srand(42);
 
-    for (int contador = 0; contador < m; contador++) 
+    for (int x = 0; x < m; x++) 
     {
-        float x = contador - 20;
-
-        float ruido = gauss(0, 2);
-
-        float y = 2 * x + 5 + ruido;
-
-        matriz_individuos[contador][0] = x;
-        matriz_individuos[contador][1] = y;
+        matriz_individuos[x][0] = ((float)rand() / RAND_MAX) * 20 - 10;
+        matriz_individuos[x][1] = ((float)rand() / RAND_MAX) * 20 - 10;
     }
 }
 
@@ -44,7 +38,7 @@ float calcular_erro(float a, float b, float (*matriz)[2], int n)
         erro+=(matriz[x][1] - (a*(matriz[x][0]) + b)) * (matriz[x][1] - (a*(matriz[x][0]) + b));
     }
 
-    erro = erro * 1/n;
+    erro /= n;
 
     return erro;
 }
