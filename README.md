@@ -1,114 +1,81 @@
-📘 Projeto: Algoritmo Genético para Ajuste de Função Linear
+🧬 Algoritmo Genético: Ajuste de Função Linear
 
-Este projeto implementa um Algoritmo Genético (AG) para encontrar os parâmetros ótimos de uma função linear do tipo:
+Este projeto implementa um Algoritmo Genético (AG) clássico em C/C++ voltado para o problema de ajuste de parâmetros. O objetivo principal é encontrar os coeficientes a e b que minimizam o Erro Quadrático Médio (MSE) entre a reta estimada y^​=ax+b e um conjunto de pontos amostrais fixos.
+📂 Estrutura do Projeto
 
-y=ax+b
-y=ax+b
+A organização do diretório segue as boas práticas de modularização e organização modular de programas:
 
-O objetivo é ajustar uma reta que minimize o erro médio quadrático entre os valores previstos e os valores reais de um conjunto de pontos.
+    src/: Arquivos fonte (.c) contendo a lógica principal e o ciclo evolutivo.
 
-📁 Estrutura do Projeto
+    include/: Cabeçalhos (.h) com as definições de estruturas e protótipos.
 
-/
-├── src/            # Código-fonte principal (main e módulos do AG)
-├── include/        # Headers (.h)
-├── tools/          # Ferramentas auxiliares (gerar.c)
-├── build/          # Objetos compilados e executáveis
-├── data/           # Arquivos de entrada e saída (.dat)
-├── Makefile        # Automação de compilação e execução
-└── README.md       # Documentação do projeto
+    tools/: Ferramentas auxiliares, como o gerador de pontos (gerar.c).
 
-🧬 Descrição Geral
+    data/: Diretório reservado para os arquivos input.dat (entrada) e output.dat (saída).
 
-O programa utiliza um algoritmo genético clássico composto por:
+    Makefile: Script de automação para compilação e execução obrigatória em ambiente Linux.
 
-Geração inicial de indivíduos (valores aleatórios de a e b)
-Avaliação do erro usando os pontos fornecidos
-Cálculo do fitness (inversamente proporcional ao erro)
-Seleção dos dois melhores indivíduos
-Crossover para gerar o novo indivíduo
-Mutação controlada
-Substituição do pior indivíduo da população
+🧬 Funcionamento do Algoritmo
 
-Esse processo é repetido durante G gerações, até que os melhores valores de a e b sejam encontrados.
+O ciclo evolutivo foi projetado para consolidar o domínio sobre manipulação de vetores, ponteiros e alocação dinâmica de memória:
 
-📄 Entrada de Dados (input.dat)
+    Inicialização: Geração aleatória da população inicial de indivíduos (a,b) dentro de limites definidos.
 
-OBS: Essa ferramenta foi desabilitada para que a edição livre do input.dat possa ser feita. 
+    Avaliação: Cálculo do erro e do fitness (aptidão) para cada indivíduo. O fitness é inversamente proporcional ao erro.
 
-Os dados utilizados pelo algoritmo genético são gerados automaticamente pelo arquivo:
+    Seleção: Identificação dos dois indivíduos com maior fitness para servirem como progenitores.
 
-tools/gerar.c
+    Crossover: Operação de combinação parcial dos parâmetros dos pais para gerar um descendente.
 
-Ela usa uma seed fixa, garantindo replicabilidade da execução.
+    Mutação: Introdução de uma variação controlada (δ) para manter a diversidade genética e evitar mínimos locais.
 
-O arquivo input.dat contém:
+    Atualização: Substituição do indivíduo de pior desempenho pelo novo filho gerado, repetindo o processo por G gerações.
 
-n m G
-x1 y1
+🚀 Como Executar
+
+O projeto utiliza o Makefile para simplificar o processo de build em sistemas Linux (Ubuntu ou Zorin).
+Comandos Principais:
+Ação	Comando
+Compilar o projeto	make
+Executar o algoritmo	make run
+Limpar binários e objetos	make clean
+📄 Formato de Dados (input.dat)
+
+O programa realiza a leitura dos parâmetros de execução e dos pontos amostrais através de um arquivo de texto:
+Plaintext
+
+n m G       <-- (Nº de pontos, Tamanho da População, Nº de Gerações) [cite: 108]
+x1 y1       <-- (Coordenadas X e Y do primeiro ponto) [cite: 109]
 x2 y2
 ...
-xn yn
+xn yn       [cite: 111]
 
-Onde:
+📊 Resultados Esperados
 
-n = número de pontos
-m = tamanho da população (nº de indivíduos)
-G = número de gerações
-🚀 Execução via Makefile
+Com base na semente padrão e na natureza convexa do problema de ajuste linear, o algoritmo tende a convergir para os seguintes valores:
 
-O projeto é totalmente automatizado por um Makefile.
+    Coeficiente Angular (a): ≈2.00
 
-Compilar:
+    Coeficiente Linear (b): ≈4.88
 
-make
+    Erro Médio: ≈2.73
 
-Compilar e executar:
+    Nota: Ao atingir o mínimo global, o algoritmo tende a "estacionar", uma vez que o ajuste busca a maximização do fitness através da minimização sistemática do erro.
 
-make run
+🔧 Requisitos de Sistema
 
-Limpar arquivos compilados:
+    Linguagem: C ou C++ (Procedimental ou Orientado a Objetos).
 
-make clean
+    Compilador: GCC.
 
-Sobre o gerador de dados
-
-Para facilitar manutenção, o Makefile contém blocos comentados responsáveis por:
-
-Compilar gerar.c
-Gerar automaticamente o arquivo input.dat
-
-Atualmente, o projeto usa o input.dat existente, sem apagá-lo a cada execução.
-
-📤 Saída (output.dat)
-
-O programa gera um arquivo contendo, para cada geração:
-
-Melhor indivíduo da população
-Parâmetros a e b
-Erro médio
-Fitness
-
-Ao final do processo, o arquivo contém o melhor ajuste encontrado em todas as gerações.
-
-🔧 Requisitos
-GCC
-Make
-Linux ou WSL recomendado
-🧠 Observações sobre convergência
-
-O AG tende a convergir para:
-
-a≈2.00, b≈4.88
-
-Com erro≈2.73
-
-Este é o mínimo global real para os pontos utilizados.
-
-Por ser um problema convexo, é esperado que o algoritmo “estacione” quando atingir esse valor — qualquer ajuste em a ou b só aumentaria o erro.
+    Ambiente: Linux (Ubuntu ou Zorin via Makefile).
 
 📚 Créditos
 
-Projeto desenvolvido por: Matheus Tavares
-Readme: Desenvolvido com ajuda do LLM ChatGPT.
-Disciplina: Meta-Heurísticas
+    Desenvolvedor: Matheus Tavares
+
+    Instituição: CEFET-MG 
+
+    Disciplina: Algoritmos e Estruturas de Dados I 
+
+    Documentação: Estruturada com auxílio de IA.
