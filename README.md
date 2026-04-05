@@ -100,12 +100,8 @@ Linux ou WSL recomendado
 O AG tende a convergir para:
 
 a≈2.00, b≈4.88
-a≈2.00, b≈4.88
 
-Com erro:
-
-Erro mıˊnimo≈2.73
-Erro mnimo≈2.73
+Com erro≈2.73
 
 Este é o mínimo global real para os pontos utilizados.
 
