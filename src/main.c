@@ -102,6 +102,8 @@ int main(void)
 
     fclose(out);
 
+    free(matriz_pontos);
+    free(matriz_individuos);
 
     return 0;
 }
