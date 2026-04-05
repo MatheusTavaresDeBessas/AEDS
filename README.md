@@ -44,11 +44,11 @@ Limpar binários e objetos	make clean
 O programa realiza a leitura dos parâmetros de execução e dos pontos amostrais através de um arquivo de texto:
 Plaintext
 
-n m G       <-- (Nº de pontos, Tamanho da População, Nº de Gerações) [cite: 108]
-x1 y1       <-- (Coordenadas X e Y do primeiro ponto) [cite: 109]
+n m G       <-- (Nº de pontos, Tamanho da População, Nº de Gerações)
+x1 y1       <-- (Coordenadas X e Y do primeiro ponto)
 x2 y2
 ...
-xn yn       [cite: 111]
+xn yn     
 
 📊 Resultados Esperados
 
