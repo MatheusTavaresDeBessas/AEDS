@@ -63,7 +63,7 @@ Com base na semente padrão e na natureza convexa do problema de ajuste linear, 
 
 🔧 Requisitos de Sistema
 
-    Linguagem: C ou C++ (Procedimental ou Orientado a Objetos).
+    Linguagem: C.
 
     Compilador: GCC.
 
