@@ -35,10 +35,9 @@ O ciclo evolutivo foi projetado para consolidar o domínio sobre manipulação d
 
 O projeto utiliza o Makefile para simplificar o processo de build em sistemas Linux (Ubuntu ou Zorin).
 Comandos Principais:
-Ação	Comando
-Compilar o projeto	make
-Executar o algoritmo	make run
-Limpar binários e objetos	make clean
+Compilar o projeto: make,
+Executar o algoritmo: make run,
+Limpar binários e objetos: make clean
 📄 Formato de Dados (input.dat)
 
 O programa realiza a leitura dos parâmetros de execução e dos pontos amostrais através de um arquivo de texto:
