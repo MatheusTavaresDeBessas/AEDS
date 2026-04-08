@@ -1,6 +1,6 @@
 🧬 Algoritmo Genético: Ajuste de Função Linear
 
-Este projeto implementa um Algoritmo Genético (AG) clássico em C/C++ voltado para o problema de ajuste de parâmetros. O objetivo principal é encontrar os coeficientes a e b que minimizam o Erro Quadrático Médio (MSE) entre a reta estimada y^​=ax+b e um conjunto de pontos amostrais fixos.
+Este projeto implementa um Algoritmo Genético (AG) clássico em C voltado para o problema de ajuste de parâmetros. O objetivo principal é encontrar os coeficientes a e b que minimizam o Erro Quadrático Médio (MSE) entre a reta estimada y^​=ax+b e um conjunto de pontos amostrais fixos.
 📂 Estrutura do Projeto
 
 A organização do diretório segue as boas práticas de modularização e organização modular de programas:
